@@ -1,0 +1,70 @@
+public class HW1 {
+        public static void main(String[] args) {
+            Workman[] workmen = new Workman[5];
+            workmen[0] = new Workman("Иванов Иван", "Менеджер", "ivanov@mail.com", "555-1234", 40000, 35);
+            workmen[1] = new Workman("Петров Петр", "Разработчик", "petrov@mail.com", "666-5678", 50000, 42);
+            workmen[2] = new Workman("Сидоров Сидор", "Аналитик", "sidorov@mail.com", "777-9876", 45000, 28);
+            workmen[3] = new Workman("Смирнов Алексей", "Дизайнер", "smirnov@mail.com", "888-4321", 35000, 48);
+            workmen[4] = new Workman("Козлова Елена", "Бухгалтер", "kozlova@mail.com", "999-8765", 60000, 50);
+            System.out.println("Сотрудники старше 40 лет:");
+            for (Workman workman : workmen) {
+                if (workman.getAge() > 40) {
+                    System.out.println(workman);
+                }
+            }
+        }
+    }
+
+    class Workman {
+        private String fullName;
+        private String position;
+        private String email;
+        private String phoneNumber;
+        private double salary;
+        private int age;
+
+        public Workman(String fullName, String position, String email, String phoneNumber, double salary, int age) {
+            this.fullName = fullName;
+            this.position = position;
+            this.email = email;
+            this.phoneNumber = phoneNumber;
+            this.salary = salary;
+            this.age = age;
+        }
+
+        public String getFullName() {
+            return fullName;
+        }
+
+        public String getPosition() {
+            return position;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getPhoneNumber() {
+            return phoneNumber;
+        }
+
+        public double getSalary() {
+            return salary;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        @Override
+        public String toString() {
+            return "Workman{" +
+                    "fullName='" + fullName + '\'' +
+                    ", position='" + position + '\'' +
+                    ", email='" + email + '\'' +
+                    ", phoneNumber='" + phoneNumber + '\'' +
+                    ", salary=" + salary +
+                    ", age=" + age +
+                    '}';
+        }
+    }
