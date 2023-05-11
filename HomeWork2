@@ -1,0 +1,58 @@
+public class HW2 {
+    static class Animal {
+        protected int maxRunDistance;
+        protected int maxSwimDistance;
+
+        public Animal(int maxRunDistance, int maxSwimDistance) {
+            this.maxRunDistance = maxRunDistance;
+            this.maxSwimDistance = maxSwimDistance;
+        }
+
+        public void run(int distance) {
+            if (distance <= maxRunDistance) {
+                System.out.println(this.getClass().getSimpleName() + " пробежал(а) " + distance + " м.");
+            } else {
+                System.out.println(this.getClass().getSimpleName() + " не может пробежать " + distance + " м.");
+            }
+        }
+
+        public void swim(int distance) {
+            if (distance <= maxSwimDistance) {
+                System.out.println(this.getClass().getSimpleName() + " проплыл(а) " + distance + " м.");
+            } else {
+                System.out.println(this.getClass().getSimpleName() + " не может проплыть " + distance + " м.");
+            }
+        }
+    }
+
+    static class Cat extends Animal {
+        public Cat() {
+            super(200, 0);
+        }
+
+        @Override
+        public void swim(int distance) {
+            System.out.println("Кот не умеет плавать!");
+        }
+    }
+
+    static class Dog extends Animal {
+        public Dog() {
+            super(500, 10);
+        }
+    }
+
+    public static void main(String[] args) {
+        Animal[] animals = new Animal[3];
+        animals[0] = new Cat();
+        animals[1] = new Dog();
+        animals[2] = new Dog();
+
+        for (Animal animal : animals) {
+            animal.run(150);
+            animal.swim(5);
+        }
+
+        System.out.println("Количество созданных животных: " + animals.length);
+    }
+}
