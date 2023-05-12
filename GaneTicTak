@@ -1,0 +1,112 @@
+package game;
+
+import java.util.Scanner;
+
+public class TicTacToe {
+    private char[][] board;
+    private char currentPlayer;
+
+    public TicTacToe() {
+        board = new char[3][3];
+        currentPlayer = 'X';
+        initializeBoard();
+    }
+
+    private void initializeBoard() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = '-';
+            }
+        }
+    }
+
+    private void printBoard() {
+        System.out.println("-------------");
+        for (int i = 0; i < 3; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " | ");
+            }
+            System.out.println();
+            System.out.println("-------------");
+        }
+    }
+
+    private boolean isBoardFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == '-') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean isWinner(char player) {
+        // Проверка строк и столбцов
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == player && board[i][1] == player && board[i][2] == player) {
+                return true; // Строка содержит одинаковые символы
+            }
+            if (board[0][i] == player && board[1][i] == player && board[2][i] == player) {
+                return true; // Столбец содержит одинаковые символы
+            }
+        }
+
+        // Проверка диагоналей
+        if (board[0][0] == player && board[1][1] == player && board[2][2] == player) {
+            return true; // Главная диагональ содержит одинаковые символы
+        }
+        if (board[0][2] == player && board[1][1] == player && board[2][0] == player) {
+            return true; // Побочная диагональ содержит одинаковые символы
+        }
+
+        return false; // Нет выигрышной комбинации
+    }
+
+    public void play() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Игра Крестики-нолики началась!");
+
+        while (true) {
+            System.out.println("Ход игрока " + currentPlayer);
+            System.out.print("Введите номер строки (0-2): ");
+            int row = scanner.nextInt();
+            System.out.print("Введите номер столбца (0-2): ");
+            int col = scanner.nextInt();
+
+            if (row < 0 || row > 2 || col < 0 || col > 2) {
+                System.out.println("Неверные координаты. Попробуйте снова.");
+                continue;
+            }
+
+            if (board[row][col] != '-') {
+                System.out.println("Ячейка уже занята!");
+                continue;
+            }
+
+            board[row][col] = currentPlayer;
+            printBoard();
+
+            if (isWinner(currentPlayer)) {
+                System.out.println("Игрок " + currentPlayer + " победил!");
+                break;
+            } else if (isBoardFull()) {
+                System.out.println("Ничья!");
+                break;
+            }
+
+            currentPlayer = (currentPlayer == 'X') ? 'O' : 'X'; // Смена игрока
+        }
+
+        System.out.println("Игра завершена.");
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        TicTacToe game = new TicTacToe();
+        game.play();
+    }
+}
