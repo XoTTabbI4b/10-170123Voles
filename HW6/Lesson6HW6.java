@@ -4,9 +4,9 @@ package HW6;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Java. Homework #5
+ * Java. Homework #6
  * @author user Yauheni Bakhar
- * @version 18 May 2023
+ * @version 19 May 2023
   */
 public class Lesson6HW6 {
     public static void main(String[] args) {
