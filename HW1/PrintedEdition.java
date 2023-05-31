@@ -1,7 +1,5 @@
 package Pro.Home_Work.HW1;
-// Разработчик: [Ваше имя]
 
-// Класс PrintedEdition представляет печатное издание в каталоге библиотеки
 class PrintedEdition {
     private String catalogNumber; // Каталожный номер
     private String title; // Название
