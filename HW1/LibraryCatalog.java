@@ -16,16 +16,17 @@ class LibraryCatalog {
 
     public void displayCatalog() {
         for (PrintedEdition printedEdition : catalog) {
+            String details = printedEdition.getTitle();
+
             if (printedEdition instanceof Book) {
                 Book book = (Book) printedEdition;
-                System.out.println("Книга: " + book.getTitle() + " (ISBN: " + book.getISBN() + ")");
+                details += " (ISBN: " + book.getISBN() + ")";
             } else if (printedEdition instanceof Journal) {
                 Journal journal = (Journal) printedEdition;
-                System.out.println("Журнал: " + journal.getTitle() + " (Номер: " + journal.getNumber() + ", Год издания: " + journal.getYear() + ")");
-            } else {
-                System.out.println("Печатное издание: " + printedEdition.getTitle());
+                details += " (Номер: " + journal.getNumber() + ", Год издания: " + journal.getYear() + ")";
             }
+
+            System.out.println("Печатное издание: " + details);
         }
     }
 }
-
