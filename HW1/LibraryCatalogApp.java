@@ -1,7 +1,6 @@
 package Pro.Home_Work.HW1;
 
 public class LibraryCatalogApp {
-
     public static void main(String[] args) {
         LibraryCatalog libraryCatalog = new LibraryCatalog();
 
