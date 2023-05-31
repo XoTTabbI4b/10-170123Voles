@@ -1,5 +1,11 @@
 package Pro.Home_Work.HW1;
 
+/**
+ * Java. Homework #1
+ * @author user Yauheni Bakhar
+ * @version 31 May 2023
+  */
+
 public class LibraryCatalogApp {
     public static void main(String[] args) {
         LibraryCatalog libraryCatalog = new LibraryCatalog();
@@ -13,7 +19,6 @@ public class LibraryCatalogApp {
         libraryCatalog.addPrintedEdition(book2);
         libraryCatalog.addPrintedEdition(journal1);
         libraryCatalog.addPrintedEdition(journal2);
-
         libraryCatalog.displayCatalog();
     }
 }
