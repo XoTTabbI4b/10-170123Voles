@@ -1,18 +1,7 @@
-import java.util.Random;
-
 public class Enumerating {
     public static void main(String[] args) {
         int[][] gameBoard = new int[10][10]; // Инициализация игрового поля размером 10x10
-        Random random = new Random(); // Создание объекта Random для генерации случайных чисел
-
-        // Заполнение игрового поля
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                gameBoard[i][j] = random.nextInt(2); // Заполнение клетки случайным числом 0 или 1
-            }
-        }
-
-        // Подсчет количества кораблей
+          // Подсчет количества кораблей
         int count = 0; // Счетчик кораблей
 
         for (int i = 0; i < 10; i++) {
